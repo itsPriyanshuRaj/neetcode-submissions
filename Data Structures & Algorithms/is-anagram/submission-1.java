@@ -1,0 +1,36 @@
+class Solution {
+
+    public String sort(String s){
+        char[] arr = s.toCharArray();
+
+        for(int i=0; i<arr.length-1; i++){
+            for(int j =0; j<arr.length-i-1; j++){
+                if(arr[j]>arr[j+1]){
+                    char temp = arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+
+        return new String(arr);
+    }
+
+    public boolean isAnagram(String s, String t) {
+
+        // boolean flag = false;
+        String str = sort(s);
+        String str1 =sort(t);
+        return str.equals(str1);
+        // for(int i=0; i<str.length(); i++){
+        //     for(int j=0; j<str1.length(); j++){
+        //         if(str.charAt(i)==str1.charAt(j)){
+        //             flag=true;
+        //         }else{
+        //             flag=false;
+        //         }
+        //     }
+        // }
+        // return flag;
+    }
+}
